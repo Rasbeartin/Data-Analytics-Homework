@@ -35,6 +35,10 @@ with open(budget_data, "r") as budget_data_csv:
         stored_month_max.append(row[0])
         stored_month_min.append(row[0])
         stored_change.append(profit_loss_change)
+    max_change = max(stored_change)
+    index_change_max = stored_change.index(max_change)
+    index_change_min = stored_change.index(min_change)
+    min_change = min(stored_change)
     #prints total months
     print("There are " + str(total_months) + " recorded in this dataset.")
     #prints sum of total amount in 2 column
@@ -45,15 +49,10 @@ with open(budget_data, "r") as budget_data_csv:
     sum_profit_loss_change = sum(stored_change)
     #average of changes
     print(f"The Average change in profit is ${sum_profit_loss_change/length_changes:.2f}.")
-    max_change = max(stored_change)
-    index_change_max = stored_change.index(max_change)
-    index_change_min = stored_change.index(min_change)
-    min_change = min(stored_change)
     #prints highest change in profit loss column
     print("The Highest change was $" + str(max_change) +".")
     #prints the lowest value of change in profit loss column
     print("The Lowest change was $" + str(min_change) + ".")
-    print(stored_month_max)
 
     result = (f"""Analysis of Data
     ================================================
